@@ -1,24 +1,30 @@
+def es_bisiesto(año):
+    """
+    Determina si un año es bisiesto según las reglas históricas.
+    - Calendario Juliano (antes de 1582): años divisibles por 4 son bisiestos
+    - Calendario Gregoriano (desde 1582): años divisibles por 4 son bisiestos,
+      excepto los divisibles por 100 que no sean divisibles por 400
+    """
+    # Determinar el calendario vigente
+    if año < 1582:
+        # Calendario Juliano: bisiesto si es divisible por 4
+        return año % 4 == 0
+    else:
+        # Calendario Gregoriano
+        if año % 400 == 0:
+            return True
+        elif año % 100 == 0:
+            return False
+        else:
+            return año % 4 == 0
 
-""" 
-
-Cuando la Tierra completa una órbita alrededor del Sol,
-no han transcurrido exactamente 365 rotaciones sobre si misma,
-sino un poco más. Más precisamente, la diferencia es de más
-o menos un cuarto de dia.
-
-Para evitar que las estaciones se desfasen con el calendario,
-jualiano intridujo la regla de introducir un dia
-adicional en los años divisibles por 4(llamados bisiestos), 
-para tomar en consideracion los cuatro cuartos de dia acumulados
-
-Sin embargo, bajo esta regla sigue habiendo un desfase, 
-que es de aproximadamente 3/400 de dia.
-
-Para corregir este desfase, en el año 1582 el papa Gregorio XIII introdujo
-un nuevo calendario en el que el último año de cada siglo dejaba de ser bisiesto, a no
-ser que fuera divisible por 400
-
-Escriba un programa que indique si un año es bisiesto o no, 
-teniendo en cuenta cual era el calendario vigente
-
-"""
+# Solicitar el año al usuario
+try:
+    año = int(input("Ingrese un año: "))
+    
+    if es_bisiesto(año):
+        print(f"{año} es un año bisiesto.")
+    else:
+        print(f"{año} no es un año bisiesto.")
+except ValueError:
+    print("Error: Por favor ingrese un año válido (número entero).")
