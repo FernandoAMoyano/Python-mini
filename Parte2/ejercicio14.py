@@ -21,7 +21,18 @@ signos = {
   "sagitario": ((11,23),(12,21))
   "capricornio": ((12,22),(1,20))
   "acuario": ((1,21),(2,19))
+  "piscis" :((2,20)(3,20))
   
 }
+
+Pro ejemplo para que una persona sea de signo libra debe haber nacido 
+entre el 24 de septiembre y el 23 de octubre.
+
+Escriba la fucnion determinar_signo(fecha_de_nacimiento) que reciba como
+parametro la fecha de nacimiento de una persona, representada
+como una tupla(año, mes, dia)y que retorne el signo zodiacal de la persona
+
+determinar_signo((1990,5,7))
+tauro
 
 """
