@@ -14,24 +14,6 @@ Escriba un programa para simular un campeonato de tenis.
   el campeon del torneo.
 """
 
-""" ronda1=[
-        {
-         "partido1":(competidores["jugador1"], competidores["jugador2"]) ,
-         "ganador":competidores["jugador1"]
-        },
-        {
-          "partido2":(competidores["jugador3"], competidores["jugador4"]),
-          "ganador":competidores["jugador1"]
-        },
-        {
-          "partido3":(competidores["jugador5"], competidores["jugador6"]),
-          "ganador":competidores["jugador1"]
-        },
-        {
-          "partido3":(competidores["jugador7"], competidores["jugador8"]),
-          "ganador":competidores["jugador1"]
-        }      
-       ] """
 
 competidores = [
     {"jugador1": "Nadal"},
