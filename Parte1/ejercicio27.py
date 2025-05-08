@@ -13,7 +13,7 @@ Consideraciones:
 """
 
 
-def transformarABinario(numero):
+def transformar_a_binario(numero):
     binario = ""
     denominador = 2
     while True:
@@ -27,4 +27,4 @@ def transformarABinario(numero):
     print(binario)
 
 
-transformarABinario(6)
+transformar_a_binario(6)

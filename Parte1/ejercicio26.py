@@ -7,7 +7,7 @@ numeros y devuelva el promedio
 from typing import List
 
 
-def calcularPromedio(numeros: List[int]):
+def calcular_promedio(numeros: List[int]):
     suma = 0
     for numero in numeros:
         suma += numero
@@ -15,4 +15,4 @@ def calcularPromedio(numeros: List[int]):
     return print(f"El promedio de los numeros ingresados es {promedio}")
 
 
-calcularPromedio([5, 2, 3, 4, 5])
+calcular_promedio([5, 2, 3, 4, 5])

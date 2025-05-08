@@ -5,10 +5,10 @@ de un numero
 """
 
 
-def calcularFactorial(numero):
+def calcular_factorial(numero):
     factorial = 1
     for i in range(1, numero + 1):
         factorial *= i
     print(factorial)
 
-calcularFactorial(4)
+calcular_factorial(4)
