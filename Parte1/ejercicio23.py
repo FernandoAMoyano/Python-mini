@@ -15,7 +15,7 @@ lista_calificaciones = [
 ]
 
 
-def actualizarCalificaciones(nombre, nuevasCalificaciones):
+def actualizar_calificaciones(nombre, nuevasCalificaciones):
     alumno_encontrado = False
     for alumno in lista_calificaciones:
         if alumno["nombre"] == nombre:
@@ -28,14 +28,14 @@ def actualizarCalificaciones(nombre, nuevasCalificaciones):
         print(f"No se encontro al alumno con nombre{nombre}")
 
 
-def mostrarCalificaciones():
+def mostrar_calificaciones():
     for alumno in lista_calificaciones:
         print(f"Alumno: {alumno['nombre']}")
         for materia, nota in alumno["calificaciones"].items():
             print(f"  Materia {materia}: {nota}")
 
 
-def calcularPromedio(nombre):
+def calcular_promedio(nombre):
     for alumno in lista_calificaciones:
         if alumno["nombre"] == nombre:
             calificaciones = alumno["calificaciones"]
@@ -45,13 +45,13 @@ def calcularPromedio(nombre):
     return None
 
 
-def agregarNuevaCalificacion(nombre, calificaciones):
+def agregar_nueva_calificacion(nombre, calificaciones):
     nuevo_alumno = {"nombre": nombre, "calificaciones": calificaciones}
     lista_calificaciones.append(nuevo_alumno)
     print(f"Se agregó a {nombre} con sus calificaciones.")
 
 
-def solicitarCalificaciones():
+def solicitar_calificaciones():
     calificaciones = {}
     for i in range(1, 6):
         calificacion = input(f"Ingresa la calificacion para la materia {i}")
@@ -59,7 +59,7 @@ def solicitarCalificaciones():
     return calificaciones
 
 
-def solicitarNombreAlumno():
+def solicitar_nombre_alumno():
     return input("Ingresa el nombre del alumno")
 
 
@@ -74,21 +74,21 @@ def main():
         opcion = input("Selecciona una opción: ")
 
         if opcion == "1":
-            nombre = solicitarNombreAlumno()
-            calificaciones = solicitarCalificaciones()
-            agregarNuevaCalificacion(nombre, calificaciones)
+            nombre = solicitar_nombre_alumno()
+            calificaciones = solicitar_calificaciones()
+            agregar_nueva_calificacion(nombre, calificaciones)
 
         elif opcion == "2":
-            nombre = solicitarNombreAlumno()
-            nuevas = solicitarCalificaciones()
-            actualizarCalificaciones(nombre, nuevas)
+            nombre = solicitar_nombre_alumno()
+            nuevas = solicitar_calificaciones()
+            actualizar_calificaciones(nombre, nuevas)
 
         elif opcion == "3":
-            mostrarCalificaciones()
+            mostrar_calificaciones()
 
         elif opcion == "4":
-            nombre = solicitarNombreAlumno()
-            promedio = calcularPromedio(nombre)
+            nombre = solicitar_nombre_alumno()
+            promedio = calcular_promedio(nombre)
             if promedio is not None:
                 print(f"El promedio de {nombre} es {promedio:.2f}")
             else:
