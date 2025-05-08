@@ -5,11 +5,11 @@ un circulo y calcule el area
 """
 
 
-def calcularArea(radio):
+def calcular_area(radio):
     PI = 3.14
     return PI * radio * radio
 
 
 radio = float(input("Ingresa a continuacion el radio del circulo"))
-area = calcularArea(radio)
+area = calcular_area(radio)
 print(f"El area del circulo es {area}")

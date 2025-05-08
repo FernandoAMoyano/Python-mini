@@ -7,7 +7,7 @@ un triangulo rectangulo y calcule la hipotenusa
 from math import sqrt
 
 
-def calcularHipotenusa(catetA, catetoB):
+def calcular_hipotenusa(catetA, catetoB):
     hipotenusa = float(sqrt(catetA ** 2 + catetoB ** 2))
     return hipotenusa
 
@@ -15,5 +15,5 @@ def calcularHipotenusa(catetA, catetoB):
 cateto1 = float(input("ingresa la medida para el primer cateto del triangulo"))
 cateto2 = float(input("ingresa la medida para el segundo cateto del triangulo"))
 
-hipotenusa = round(calcularHipotenusa(cateto1, cateto2), 2)
+hipotenusa = round(calcular_hipotenusa(cateto1, cateto2), 2)
 print(f"La hipotenusa es {hipotenusa}")
