@@ -15,11 +15,11 @@ lista_productos = [
 producto1 = {"nombre": "Laptop", "precio": 1200, "stock": 5}
 
 
-def agrearProducto(nuevoProducto):
+def agregar_producto(nuevoProducto):
     lista_productos.append(nuevoProducto)
 
 
-def actualizarProducto(id, nuevasCaracteristicas):
+def actualizar_producto(id, nuevasCaracteristicas):
     for i in range(len(lista_productos)):
         if lista_productos[i]["id"] == id:
             if "nombre" in nuevasCaracteristicas:
@@ -35,15 +35,15 @@ def actualizarProducto(id, nuevasCaracteristicas):
         print(f"No se encontro el producto con ID{id}")
 
 
-def mostrarProductos():
+def mostrar_productos():
     mensaje = "Productos en el carrito: \n"
     for producto in lista_productos:
         mensaje += f"{producto["nombre"]} ${producto["precio"]}\n"
     print(mensaje)
 
 
-mostrarProductos()
-actualizarProducto(1, {"nombre": "Leche", "precio": 43, "stock": 54})
-mostrarProductos()
-agrearProducto(producto1)
-mostrarProductos()
+mostrar_productos()
+actualizar_producto(1, {"nombre": "Leche", "precio": 43, "stock": 54})
+mostrar_productos()
+agregar_producto(producto1)
+mostrar_productos()
