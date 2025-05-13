@@ -14,7 +14,61 @@ Escriba un programa para simular un campeonato de tenis.
   el campeon del torneo.
 """
 
-listado_competidores = [
+
+
+# Formacion de equipos de dos jugadores = 4 equipos
+def formar_equipos(jugadores):
+    partidos = []
+    for i in range(0, len(jugadores), 2):
+        jugador1 = jugadores[i]
+        jugador2 = jugadores[i + 1]
+
+        partidos.append(
+            {
+                "partido": i // 2 + 1,
+                "jugadores": (jugador1, jugador2),
+            }
+        )
+    return partidos
+
+
+def solicitar_ganadores(partidos: list):
+    ganadores = []
+    for partido in partidos:
+      
+        jugador1, jugador2 = partido["jugadores"]
+        print(f"Partido {partido['partido']} - {jugador1} vs {jugador2}\n")
+
+        while True:
+            ganador = input("Quien fue el ganador?").strip()
+            if ganador in (jugador1, jugador2):
+                ganadores.append(ganador)
+                break
+            else:
+                print("El nombre no coincide con los jugadores")
+    return ganadores
+
+
+def ejecutar_torneo(jugadores):
+    ronda = 1
+    while len(jugadores) > 1:
+        print(f"\n🏆 RONDA {ronda} - Jugadores: {jugadores}")
+        partidos = formar_equipos(jugadores)
+        jugadores = solicitar_ganadores(partidos)
+        ronda += 1
+
+    print(f"\n🎉 El campeón del torneo es: {jugadores[0]} 🏆")
+
+
+    """
+    j.values()          # devuelve: dict_values(['Nadal'])
+    list(j.values())    # convierte eso en: ['Nadal']
+    list(j.values())[0] # accede al primer (y único) valor: 'Nadal'
+    """
+
+if __name__=="__main__":
+  
+  listado_competidores = [
     {"jugador-1": "Nadal"},
     {"jugador-2": "Mezler"},
     {"jugador-3": "Murray"},
@@ -25,35 +79,5 @@ listado_competidores = [
     {"jugador-8": "peptito"},
 ]
 
-ronda1 = []
-
-# Formacion de equipos de dos jugadores = 4 equipos
-def formar_equipos(competidores):
-    for i in range(0, len(competidores), 2):
-        jugador1 = list(competidores[i].values())[0]
-        jugador2 = list(competidores[i + 1].values())[0]
-
-        contrincantes = {
-            "partido": i // 2 + 1,
-            "jugadores": (jugador1, jugador2),
-        }
-        ronda1.append(contrincantes)
-
-
-formar_equipos(listado_competidores)
-print(ronda1)
-
-
-def solicitar_ganadores(partidos: list):
-    ganadores = []
-    for partido in partidos:
-        jugador1, jugador2 = partido["jugadores"]
-
-        print(f"Partido {partido['partido']} - {jugador1} vs {jugador2}\n")
-        ganadores= input("Quien fue el ganador?")
-        ganadores.append({ganadores})
-    return ganadores
-
-
-ganadores_ronda_1 = solicitar_ganadores(ronda1)
-print(ganadores_ronda_1)
+  nombres_jugadores = [list(j.values())[0] for j in listado_competidores]
+  ejecutar_torneo(nombres_jugadores)
