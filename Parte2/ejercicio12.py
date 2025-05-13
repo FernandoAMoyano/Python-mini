@@ -14,38 +14,46 @@ Escriba un programa para simular un campeonato de tenis.
   el campeon del torneo.
 """
 
-
-competidores = [
-    {"jugador1": "Nadal"},
-    {"jugador2": "Mezler"},
-    {"jugador3": "Murray"},
-    {"jugador4": "Soderling"},
-    {"jugador5": "Djokovic"},
-    {"jugador6": "Federer"},
-    {"jugador7": "Del Potro"},
-    {"jugador8": "peptito"},
+listado_competidores = [
+    {"jugador-1": "Nadal"},
+    {"jugador-2": "Mezler"},
+    {"jugador-3": "Murray"},
+    {"jugador-4": "Soderling"},
+    {"jugador-5": "Djokovic"},
+    {"jugador-6": "Federer"},
+    {"jugador-7": "Del Potro"},
+    {"jugador-8": "peptito"},
 ]
 
 ronda1 = []
 
 # Formacion de equipos de dos jugadores = 4 equipos
-for i in range(0, len(competidores), 2):
-    jugador1 = list(competidores[i].values())[0]
-    jugador2 = list(competidores[i + 1].values())[0]
+def formar_equipos(competidores):
+    for i in range(0, len(competidores), 2):
+        jugador1 = list(competidores[i].values())[0]
+        jugador2 = list(competidores[i + 1].values())[0]
 
-    partido = {
-        "partido": i // 2 + 1,
-        "jugadores": (jugador1, jugador2),
-    }
-    ronda1.append(partido)
+        contrincantes = {
+            "partido": i // 2 + 1,
+            "jugadores": (jugador1, jugador2),
+        }
+        ronda1.append(contrincantes)
 
 
-def mostrar_partidos(listado: list):
-    for partido in listado:
+formar_equipos(listado_competidores)
+print(ronda1)
+
+
+def solicitar_ganadores(partidos: list):
+    ganadores = []
+    for partido in partidos:
         jugador1, jugador2 = partido["jugadores"]
 
-        print(f"Partido {partido['partido']} - {jugador1} vs {jugador2}")
-        ganador = input("Quien fue el ganador?")
+        print(f"Partido {partido['partido']} - {jugador1} vs {jugador2}\n")
+        ganadores= input("Quien fue el ganador?")
+        ganadores.append({ganadores})
+    return ganadores
 
 
-mostrar_partidos(ronda1)
+ganadores_ronda_1 = solicitar_ganadores(ronda1)
+print(ganadores_ronda_1)
