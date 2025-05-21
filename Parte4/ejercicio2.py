@@ -36,9 +36,9 @@ class Moneda:
         return dolares
 
     def pesos_a_dolares(self):
-         pesos = self.cantidad / 1200
-         return pesos
-      
+        pesos = self.cantidad / 1200
+        return pesos
+
     def __str__(self):
         match self.moneda:
             case "usd":
@@ -47,12 +47,48 @@ class Moneda:
                 return f"{self.cantidad} pesos son {self.pesos_a_dolares()} dolares"
             case _:
                 return "Moneda no soportada"
-    
-    
-   
-       
+
+
+""" 2 """
+
+
+class Tarea:
+
+    tareas_pendientes = []
+
+    def __init__(self, tarea, estado="pendiente"):
+        self.tarea = tarea
+        self.estado = estado
+        self.chequear_estado()
+
+    def chequear_estado(self):
+        if self.estado == "pendiente":
+            if self.tarea not in Tarea.tareas_pendientes:
+                Tarea.tareas_pendientes.append(self.tarea)
+        else:
+            if self.tarea in Tarea.tareas_pendientes:
+                Tarea.tareas_pendientes.remove(self.tarea)
+
+    def __str__(self):
+        return f"Tarea: {self.tarea}, Estado: {self.estado}"
+
+    def __len__(self):
+        return len(Tarea.tareas_pendientes)
+
+
 if __name__ == "__main__":
-    moneda = Moneda(100,"usd")
+    # 1- Conversor de monedas
+    moneda = Moneda(100, "usd")
     print(moneda)
-    moneda = Moneda(10000,"pesos")
+    moneda = Moneda(10000, "pesos")
     print(moneda)
+
+    # 2- Registro de Tareas
+    tarea1 = Tarea("estudiar", "completada")
+    print(tarea1)
+    tarea2 = Tarea("Programar", "pendiente")
+    print(tarea1)
+    tarea3 = Tarea("Hacer compras", "pendiente")
+    print(tarea3)
+    print(f"Cantidad de tareas pendientes: {len(tarea3)}")
+    
