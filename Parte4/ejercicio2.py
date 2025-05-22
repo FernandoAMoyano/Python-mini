@@ -76,6 +76,26 @@ class Tarea:
         return len(Tarea.tareas_pendientes)
 
 
+""" 3 """
+
+
+class Carta:
+    def __init__(self, numero, palo):
+        self.numero = numero
+        self.palo = palo
+
+    def __str__(self):
+        return f"Carta numero {self.numero} de {self.palo}"
+
+    def __getitem__(self, clave):
+        atributos = {"numero": self.numero, "palo": self.palo}
+
+        if clave in atributos:
+            return atributos[clave]
+        else:
+            raise KeyError(f"Atributo {clave} no valido")
+
+
 if __name__ == "__main__":
     # 1- Conversor de monedas
     moneda = Moneda(100, "usd")
@@ -91,4 +111,8 @@ if __name__ == "__main__":
     tarea3 = Tarea("Hacer compras", "pendiente")
     print(tarea3)
     print(f"Cantidad de tareas pendientes: {len(tarea3)}")
-    
+
+    # 3- Cartas
+    carta1 = Carta(7, "bastos")
+    print(carta1["numero"])
+    print(carta1)
