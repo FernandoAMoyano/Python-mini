@@ -96,6 +96,24 @@ class Carta:
             raise KeyError(f"Atributo {clave} no valido")
 
 
+class Contacto:
+    lista_de_contactos = []
+
+    def __init__(self, nombre, telefono):
+        self.nombre = nombre
+        self.telefono = telefono
+        Contacto.lista_de_contactos.append(self)
+
+    def __setitem__(self, clave, valor):
+        if hasattr(self, clave):
+            setattr(self, clave, valor)
+        else:
+            raise KeyError(f"Atributo {clave} no valido")
+
+    def __str__(self):
+        return f"Contacto: {self.nombre} telefono: {self.telefono} "
+
+
 if __name__ == "__main__":
     # 1- Conversor de monedas
     moneda = Moneda(100, "usd")
@@ -116,3 +134,15 @@ if __name__ == "__main__":
     carta1 = Carta(7, "bastos")
     print(carta1["numero"])
     print(carta1)
+
+    # Contacto
+    contacto1 = Contacto("Fernando", 341234)
+    print(contacto1)
+    contacto1["nombre"] = "Claudio"
+    print(contacto1)
+    
+    contacto2=Contacto("Hernesto",2342342)
+    
+
+    for c in contacto1.lista_de_contactos:
+        print(c)
