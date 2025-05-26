@@ -1,0 +1,32 @@
+@startuml Ejercicio 4
+
+class Producto {
+    - nombre: str
+    - precio: float
+    - proveedor: Proveedor
+    + __init__(nombre: str, precio: float, proveedor: Proveedor)
+    + __str__(): str
+}
+
+class Categoria {
+    - nombre: str
+    - productos: List<Producto>
+    + __init__(nombre: str)
+    + agregar_producto(producto: Producto)
+    + mostrar_productos()
+    + __str__(): str
+}
+
+class Proveedor {
+    - nombre: str
+    - productos: List<Producto>
+    + __init__(nombre: str)
+    + agregar_producto(producto: Producto)
+    + mostrar_productos()
+    + __str__(): str
+}
+
+Categoria "1" -- "*" Producto : contiene >
+Proveedor "1" -- "*" Producto : suministra >
+
+@enduml
