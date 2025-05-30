@@ -50,7 +50,7 @@ class Persona:
         if dni and (not dni.isdigit() or len(dni) != 8):
             raise ValueError("El DNI debe tener 8 dígitos numéricos.")
         self.__dni = dni
-    
+
     def mostrar_datos(self) -> str:
         return f"Nombre: {self.__nombre}, Edad: {self.__edad}, Dni: {self.__dni}"
 
@@ -59,8 +59,17 @@ class Persona:
 
 
 if __name__ == "__main__":
-    persona1 = Persona("Fernando", 33, 3423423)
-    print(persona1.edad)
+    try:
+        nombre = input("Ingrese su nombre: ")
+        edad = int(input("Ingrese su edad: "))
+        dni = input("Ingrese su DNI: ")
 
-    print(persona1.mostrar_datos())
-    print(persona1.es_mayor_edad())
+        persona = Persona(nombre, edad, dni)
+        persona.mostrar_datos()
+
+        if persona.es_mayor_edad():
+            print("Es mayor de edad.")
+        else:
+            print("Es menor de edad.")
+    except Exception as e:
+        print(f"Error: {e}")
