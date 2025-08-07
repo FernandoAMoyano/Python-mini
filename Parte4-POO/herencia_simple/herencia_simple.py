@@ -10,9 +10,8 @@ class Robot(Maquina):
     super().__init__(marca) # Llamada al constructor de la clase base
     self.tipo = tipo
     
-    
-def saludar(self):
-  return f"Soy un robot de tipo {self.tipo}. ¡Hola, mundo!"
+  def saludar(self):
+    return f"Soy un robot de tipo {self.tipo}. ¡Hola, mundo!"
 
 # Modo de Uso
 mi_robot = Robot(marca="RoboTech", tipo="Android")

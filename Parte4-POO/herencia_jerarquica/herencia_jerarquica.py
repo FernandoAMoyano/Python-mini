@@ -2,16 +2,18 @@ class Robot:
   def __init__(self, nombre):
     self.nombre = nombre
 
-def saludar(self):
-  return f"{self.nombre} dice hola."
+  def saludar(self):
+    return f"{self.nombre} dice hola."
 
 
 class RobotExplorador(Robot):
+  
   def explorar(self):
     return f"{self.nombre} está explorando el terreno."
   
   
 class RobotCocinero(Robot):
+  
   def cocinar(self):
     return f"{self.nombre} está preparando una deliciosa comida."
 
