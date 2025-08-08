@@ -33,7 +33,7 @@ class Robot:
   def agregar_herramienta(self, herramienta):
     self.herramientas.append(herramienta)
     
-def trabajar(self):
+  def trabajar(self):
     acciones = [f"{self.nombre} está trabajando"]
     acciones.append(self.brazo.mover())
     for herramienta in self.herramientas:
