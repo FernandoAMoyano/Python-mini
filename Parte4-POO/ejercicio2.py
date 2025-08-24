@@ -40,20 +40,18 @@ class Moneda:
         return pesos
 
     def __str__(self):
-        match self.moneda:
-            case "usd":
-                return f"{self.cantidad} dolares son {self.dolares_a_pesos()} pesos"
-            case "pesos":
-                return f"{self.cantidad} pesos son {self.pesos_a_dolares()} dolares"
-            case _:
-                return "Moneda no soportada"
+        if self.moneda == "usd":
+            return f"{self.cantidad} dolares son {self.dolares_a_pesos()} pesos"
+        elif self.moneda == "pesos":
+            return f"{self.cantidad} pesos son {self.pesos_a_dolares()} dolares"
+        else:
+            return "Moneda no soportada"
 
 
 """ 2 """
 
 
 class Tarea:
-
     tareas_pendientes = []
 
     def __init__(self, tarea, estado="pendiente"):
@@ -140,9 +138,8 @@ if __name__ == "__main__":
     print(contacto1)
     contacto1["nombre"] = "Claudio"
     print(contacto1)
-    
-    contacto2=Contacto("Hernesto",2342342)
-    
+
+    contacto2 = Contacto("Hernesto", 2342342)
 
     for c in contacto1.lista_de_contactos:
         print(c)
