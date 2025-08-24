@@ -1,4 +1,4 @@
-""" 
+"""
 En este ejemplo, nombre es una propiedad que encapsula el atributo __nombre
 (privado por convención). La propiedad nombre se define utilizando el decorador
 @property, que indica que el método nombre es un getter. El setter de la propiedad se
@@ -6,6 +6,7 @@ define utilizando el decorador @nombre.setter, que indica que el método nombre 
 setter.
 
 """
+
 
 class Persona:
     def __init__(self, nombre, edad):

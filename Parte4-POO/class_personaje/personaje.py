@@ -4,14 +4,20 @@ class Personaje:
         self.vidas = vidas
 
     def __add__(self, cantidad):
-        """Aumenta las vidas del personaje en una cantidad
-        específica."""
+        """
+        Aumenta las vidas del personaje en una cantidad
+        específica.
+        """
+
         self.vidas += cantidad
         return Personaje(self.nombre, self.vidas)
 
     def __sub__(self, cantidad):
-        """Disminuye las vidas del personaje en una cantidad
-        específica."""
+        """
+        Disminuye las vidas del personaje en una cantidad
+        específica.
+        """
+
         self.vidas -= cantidad
         return Personaje(self.nombre, self.vidas)
 
